@@ -1,5 +1,8 @@
 import { Home } from "../../Screens/home"
 import { Icons } from "../../Components/Icon"
+//import { Login } from "../../Screens/login";
+//import { Register } from "../../Screens/register";
+//import { Logoff } from "../../Screens/logoff";
 
 export const ScreenArray = [
     {
