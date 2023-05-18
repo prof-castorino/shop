@@ -36,7 +36,7 @@ export const Style = StyleSheet.create({
         flex: 1,
         padding: constant.SPACING,
         alignItems: constant.alignCenter,
-        justifyContent: constant.alignCenter
+        justifyContent: constant.alignCenter,
     },
     title: {
         fontSize: constant.titleFontSize,
@@ -56,7 +56,8 @@ export const Style = StyleSheet.create({
         width: constant.width,
         color: colors.active,
         borderBottomWidth: 1,
-        borderColor: colors.normal
+        borderColor: colors.normal,
+        padding: constant.SPACING / 2,
     },
     textButton: {
         fontSize: constant.textFontSize,
