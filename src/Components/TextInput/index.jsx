@@ -1,13 +1,17 @@
 import { TextInput, View } from "react-native"
-
-
+import { Style } from "../../Contexts/Theme"
 export const TextCuston = (props) => {
-    return (<View>
+
+    const onChangeText = (e) => {
+        props.CallBack(props.name, e)
+    }
+
+    return (<View style={Style.row}>
         <TextInput
-            name={props.name}
-            onChangeText={(e) => { props.CallBack(props.name, e) }}
+            onChangeText={onChangeText}
             value={props.value}
             placeholder={props.placeholder}
+            style={Style.TextInput}
         />
     </View>)
 }
