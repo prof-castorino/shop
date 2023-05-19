@@ -2,6 +2,7 @@ import { Home } from "../../Screens/home"
 import { Register } from "../../Screens/Login/register"
 import { Logoff } from "../../Screens/Login/Logoff"
 import { Login } from "../../Screens/Login"
+import { Store } from "../../Screens/Store"
 import { Icons } from "../../Components/Icon"
 import { Routes } from "../../Screens/routes";
 
@@ -13,7 +14,14 @@ export const ScreenArray = [
         icon: 'home',
         component: Home,
         notification: 0
-    }
+    }, {
+        route: 'Loja',
+        label: 'Loja',
+        typeIcon: Icons.Feather,
+        icon: 'home',
+        component: Store,
+        notification: 0
+    },
 ]
 
 export const ScreenStack = [
