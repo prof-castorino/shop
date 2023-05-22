@@ -2,9 +2,9 @@ import { Home } from "../../Screens/home"
 import { Register } from "../../Screens/Login/register"
 import { Logoff } from "../../Screens/Login/Logoff"
 import { Login } from "../../Screens/Login"
-import { Store } from "../../Screens/Store"
 import { Icons } from "../../Components/Icon"
 import { Routes } from "../../Screens/routes";
+import { Store } from "../../Screens/Store"
 
 export const ScreenArray = [
     {
@@ -14,7 +14,8 @@ export const ScreenArray = [
         icon: 'home',
         component: Home,
         notification: 0
-    }, {
+    },
+    {
         route: 'Loja',
         label: 'Loja',
         typeIcon: Icons.Feather,

@@ -42,6 +42,10 @@ export const Style = StyleSheet.create({
         fontSize: constant.titleFontSize,
         color: colors.active
     },
+    subText: {
+        fontSize: constant.subTextFontSize,
+        color: colors.active
+    },
     text: {
         fontSize: constant.textFontSize,
         color: colors.active
@@ -51,7 +55,10 @@ export const Style = StyleSheet.create({
         fontSize: constant.subTextFontSize,
         color: colors.important
     },
-    img: { height: 200, width: constant.width },
+    img: {
+        height: constant.width, width: constant.width
+    },
+    cardImg: { height: 150, },
     column: {
         padding: constant.SPACING / 2,
         width: "50%"
@@ -62,6 +69,9 @@ export const Style = StyleSheet.create({
     },
     card: {
         flexDirection: 'row'
+    },
+    cardBorder: {
+        borderBottomWidth: 0.5
     },
     TextInput: {
         fontSize: constant.textFontSize,
