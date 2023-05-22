@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { Text, View } from 'react-native';
-import { getData } from '../Contexts/Data'
+import { getData, setData } from '../Contexts/Data'
 import { Style } from '../Contexts/Theme';
-import { ButtonCuston } from "../Components/Button"
+import { ButtonCuston } from '../Components/Button';
 
 export const Home = ({ navigation }) => {
-
+    var user_ = {}
     useEffect(() => {
         const CallBack = (user) => {
             if (!user) {
@@ -17,12 +17,16 @@ export const Home = ({ navigation }) => {
                 navigation.navigate('Login')
                 return false
             }
+            user_ = user
         }
         getData(CallBack, 'user')
     })
     const onPress = () => {
-        navigation.navigate('Logoff')
+        user_.login = false
+        setData('user', user_)
+        navigation.navigate('Login')
     }
+
     return (
         <View style={Style.container}>
             <Text>Open up App.js to s2tart working on your app!</Text>

@@ -1,19 +1,40 @@
-import axios from 'axios'
-//fetch 
-export const getEstadoFetch = async (CallBack) => {
-    var url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-    await fetch(url)
-        .then(resp => resp.json())
-        .then(res => CallBack(res))
+import { ScrollView, Text } from "react-native"
+import { Style } from "../../Contexts/Theme"
+import { CardStyleInterpolators } from "@react-navigation/stack";
+import { createSharedElementStackNavigator } from "react-navigation-shared-element";
+import { getProducts } from "../../Contexts/Data";
+import { Card } from "../../Components/Cards";
+import { ImageCuston } from "../../Components/Image";
+const options = {
+    gestureEnabled: true,
+    gestureDirection: 'horizontal',
+    cardStyleInterpolators: CardStyleInterpolators.forHorizontalIOS,
+    headerShown: false
 }
 
-//axios
-export const getEstadoAxios = (CallBack) => {
-    var url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-    axios({
-        method: 'get',
-        url: url
-    }).then((resp) => {
-        CallBack(resp.data)
-    })
+const { Navigator, Screen } = createSharedElementStackNavigator()
+
+export const Store = ({ navigation }) => {
+    return (<Navigator screenOptions={options}>
+        <Screen name="Catalog" component={Catalog} />
+        <Screen name="Details" component={Details} />
+    </Navigator>)
+}
+const Catalog = ({ navigation }) => {
+    return (<ScrollView >
+        {getProducts().map(
+            (item) => (<Card {...item} navigation={navigation} />)
+        )}
+    </ScrollView>)
+}
+const Details = ({ navigation, route }) => {
+    const product = route.params
+    return (<ScrollView >
+        <Text>{product.title}</Text>
+        <ImageCuston img={product.img} />
+
+        <Text style={Style.text}>{product.descrition}</Text>
+        <Text style={Style.title}>R$ {product.price}</Text>
+        <Text style={Style.text}>R$ {product.descritionAll}</Text>
+    </ScrollView >)
 }

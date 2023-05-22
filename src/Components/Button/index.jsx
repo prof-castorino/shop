@@ -1,4 +1,4 @@
-import { Pressable, Text, TouchableOpacity } from "react-native"
+import { Text, TouchableOpacity } from "react-native"
 import { Style } from "../../Contexts/Theme"
 
 export const ButtonCuston = (props) => {
