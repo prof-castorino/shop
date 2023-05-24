@@ -1,19 +1,26 @@
 import axios from 'axios'
-//fetch 
-export const getEstadoFetch = async (CallBack) => {
-    var url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-    await fetch(url)
-        .then(resp => resp.json())
-        .then(res => CallBack(res))
+//GET
+//url = {url get api}
+//CallBack = {função que retorna o resp}
+export const getAxios = (CallBack, url) => {
+    axios
+        .get(url)
+        .then((response) => {
+            CallBack(response)
+        }).catch(function (error) {
+            console.log(error);
+        })
 }
-
-//axios
-export const getEstadoAxios = (CallBack) => {
-    var url = 'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
-    axios({
-        method: 'get',
-        url: url
-    }).then((resp) => {
-        CallBack(resp.data)
-    })
+//POST
+//url = {url get api}
+//CallBack = {função que retorna o resp}
+//data = {json com os parametro}
+export const postAxios = (CallBack, url, data) => {
+    axios
+        .post(url, data)
+        .then((response) => {
+            CallBack(response)
+        }).catch(function (error) {
+            console.log(error);
+        })
 }
